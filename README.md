@@ -49,7 +49,7 @@ dependencies {
 
 3.Update the `MainApplication.java` file as follow:
 
-```js
+```java
 import com.facebook.react.ReactApplication;
 ...
 import com.someone.sendsms.SendSMSPackage; // <--- add here!
