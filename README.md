@@ -24,18 +24,20 @@ Response msg string will be one of the following:
 ###### Minimum android version is ==4.1== and supported ==RN >= v0.29==.
 ---
 #### Installation
-    npm install react-native-send-sms --save
+```
+npm install react-native-send-sms --save
+```
 ---
 ##### **Android Setup**
 
-1. In your `android/settings.gradle` file, make the following additions:
+1.In your `android/settings.gradle` file, make the following additions:
 
 ```
 include ':react-native-send-sms'
 project(':react-native-send-sms').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-send-sms/android/app')
 ```
 
-2. In your `android/app/build.gradle` file, add the ':react-native-send-sms' project as a compile-time dependency:
+2.In your `android/app/build.gradle` file, add the ':react-native-send-sms' project as a compile-time dependency:
 
 ```
 ...
@@ -45,7 +47,7 @@ dependencies {
 }
 ```
 
-3. Update the `MainApplication.java` file as follow:
+3.Update the `MainApplication.java` file as follow:
 
 ```js
 import com.facebook.react.ReactApplication;
@@ -77,7 +79,7 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
-4. In your `AndroidManifest.xml` file, add a user permission for sending SMS.
+4.In your `AndroidManifest.xml` file, add a user permission for sending SMS.
 
 ```
 <uses-permission android:name="android.permission.SEND_SMS" />
