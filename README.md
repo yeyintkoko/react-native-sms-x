@@ -10,6 +10,15 @@ import SendSMS from 'react-native-send-sms';
 
 SendSMS.send("+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
 ```
+
+Response msg string will be one of the following:
+
++ "SMS sent"        - for successful message
++ "Generic failure" - for general failure
++ "No service"      - for no mobile operator service
++ "Radio off"       - for no mobile signal
++ "Null PDU"        - for no PDU
+
 ###### *Note:*
 
 ###### Minimum android version is ==4.1== and supported ==RN >= v0.29==.
