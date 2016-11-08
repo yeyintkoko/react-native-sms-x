@@ -1,4 +1,4 @@
-## react-native-send-sms
+## react-native-sms-x
 ***
 **SendSMS**
 
@@ -6,7 +6,7 @@
 
 *usage*
 ```js
-import SendSMS from 'react-native-send-sms';
+import SendSMS from 'react-native-sms-x';
 
 SendSMS.send("+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
 ```
@@ -25,7 +25,7 @@ Response msg string will be one of the following:
 ---
 #### Installation
 ```
-npm install react-native-send-sms --save
+npm install react-native-sms-x --save
 ```
 ---
 ##### **Android Setup**
@@ -33,17 +33,17 @@ npm install react-native-send-sms --save
 1.In your `android/settings.gradle` file, make the following additions:
 
 ```
-include ':react-native-send-sms'
-project(':react-native-send-sms').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-send-sms/android/app')
+include ':react-native-sms-x'
+project(':react-native-sms-x').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sms-x/android/app')
 ```
 
-2.In your `android/app/build.gradle` file, add the ':react-native-send-sms' project as a compile-time dependency:
+2.In your `android/app/build.gradle` file, add the ':react-native-sms-x' project as a compile-time dependency:
 
 ```
 ...
 dependencies {
     ...
-    compile project(':react-native-send-sms')
+    compile project(':react-native-sms-x')
 }
 ```
 
@@ -97,7 +97,7 @@ import {
   TouchableOpacity,
   ToastAndroid
 } from 'react-native';
-import SendSMS from 'react-native-send-sms';
+import SendSMS from 'react-native-sms-x';
 
 export default class RNSMS extends Component {
   sendSMSFunction() {
