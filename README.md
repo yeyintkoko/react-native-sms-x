@@ -2,7 +2,7 @@
 ***
 **SendSMS**
 
-> ##### A react-native component to send SMS messages. It works only for android. This component used android native api to send sms and response a callback to react-native. This react-native component desn't link to the mobile default messenger view. It will programmatically send the message to a phone number which is provided as a parameter and will response a callback with a string indicating message was sent or failure or no service.
+> ##### A react-native api to send SMS messages. It works only for android. This component used android native api to send sms and response a callback to react-native. This react-native component desn't link to the mobile default messenger view. It will programmatically send the message to a phone number which is provided as a parameter and will response a callback with a string indicating message was sent or failure or no service.
 
 *usage*
 ```js
@@ -21,7 +21,7 @@ Response msg string will be one of the following:
 
 ###### *Note:*
 
-###### Minimum android version is ==4.1== and supported ==RN >= v0.29==.
+###### Minimum android version is `4.1` and supported `RN >= v0.29`.
 ---
 #### Installation
 ```
