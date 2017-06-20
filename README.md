@@ -7,8 +7,8 @@
 *usage*
 ```js
 import SendSMS from 'react-native-sms-x';
-
-SendSMS.send("+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
+// you can put any number as Id to identify which message being process 
+SendSMS.send(123, "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
 ```
 
 Response msg string will be one of the following:
