@@ -101,7 +101,7 @@ import SendSMS from 'react-native-sms-x';
 
 export default class RNSMS extends Component {
   sendSMSFunction() {
-    SendSMS.send("+95912345678", "Hey.., this is me!\nGood to see you. Have a nice day.",
+    SendSMS.send(123, "+95912345678", "Hey.., this is me!\nGood to see you. Have a nice day.",
       (msg)=>{
         ToastAndroid.show(msg, ToastAndroid.SHORT);
       }
