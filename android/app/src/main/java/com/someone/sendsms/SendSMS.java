@@ -17,12 +17,10 @@ import com.facebook.react.bridge.ReactMethod;
  */
 
 public class SendSMS extends ReactContextBaseJavaModule {
-
     private final ReactApplicationContext reactContext;
     private Callback callback = null;
 
     public SendSMS(ReactApplicationContext reactContext) {
-
         super(reactContext);
         this.reactContext = reactContext;
     }
@@ -32,21 +30,20 @@ public class SendSMS extends ReactContextBaseJavaModule {
         return "SendSMS";
     }
 
-    private void sendCallback(String message){
+    private void sendCallback(Integer messageId, String message){
         if (callback != null) {
-            callback.invoke(message);
+            callback.invoke(messageId, message);
             callback = null;
         }
     }
 
     //---sends an SMS message to another device---
     @ReactMethod
-    public void send(String phoneNumber, String message, final Callback cb ){
+    public void send(final Integer messageId, String phoneNumber, String message, final Callback cb ){
 
         try{
 
             this.callback = cb;
-
             String SENT = "SMS_SENT";
             String DELIVERED = "SMS_DELIVERED";
 
@@ -63,19 +60,19 @@ public class SendSMS extends ReactContextBaseJavaModule {
                     switch (getResultCode())
                     {
                         case Activity.RESULT_OK:
-                            sendCallback("SMS sent");
+                            sendCallback(messageId, "SMS sent");
                             break;
                         case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
-                            sendCallback("Generic failure");
+                            sendCallback(messageId, "Generic failure");
                             break;
                         case SmsManager.RESULT_ERROR_NO_SERVICE:
-                            sendCallback("No service");
+                            sendCallback(messageId, "No service");
                             break;
                         case SmsManager.RESULT_ERROR_NULL_PDU:
-                            sendCallback("Null PDU");
+                            sendCallback(messageId, "Null PDU");
                             break;
                         case SmsManager.RESULT_ERROR_RADIO_OFF:
-                            sendCallback("Radio off");
+                            sendCallback(messageId, "Radio off");
                             break;
                     }
                 }
@@ -89,11 +86,11 @@ public class SendSMS extends ReactContextBaseJavaModule {
                     {
                         case Activity.RESULT_OK:
                             System.out.println("SMS delivered");
-                            sendCallback("SMS delivered");
+                            sendCallback(messageId, "SMS delivered");
                             break;
                         case Activity.RESULT_CANCELED:
                             System.out.println("SMS not delivered");
-                            sendCallback("SMS not delivered");
+                            sendCallback(messageId, "SMS not delivered");
                             break;
                     }
                 }
@@ -104,7 +101,7 @@ public class SendSMS extends ReactContextBaseJavaModule {
 
         }catch (Exception e) {
 
-            sendCallback("Unknown error");
+            sendCallback(messageId, "Unknown error");
             throw e;
 
         }
