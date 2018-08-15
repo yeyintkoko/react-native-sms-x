@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/yeyintkoko/react-native-sms-x#readme",
   "peerDependencies": {
-    "react": "^15.3.2",
-    "react-native": "^0.36.1"
+    "react": "^16.4.2",
+    "react-native": "^0.56.0"
   }
 }
