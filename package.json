@@ -38,6 +38,10 @@
   },
   "homepage": "https://github.com/yeyintkoko/react-native-sms-x#readme",
   "peerDependencies": {
+    "react": "*",
+    "react-native": ">=0.46"
+  },
+  "devDependencies": {
     "react": "^16.4.2",
     "react-native": "^0.56.0"
   }
