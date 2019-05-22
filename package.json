@@ -1,6 +1,6 @@
 {
   "name": "react-native-sms-x",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React native android native api to send SMS in javascript programmatically, no linking to SMS Messenger View.",
   "main": "index.js",
   "scripts": {
