@@ -8,10 +8,7 @@
 ```js
 import SendSMS from 'react-native-sms-x';
 // you can put any number as Id to identify which message being process
-SendSMS.send(123, "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msgId, msg) => {
-    console.log(`message ID: ${msgId}, message: ${msg}`);
-    // Output if successfull: message ID: 123, message: SMS sent
-});
+SendSMS.send(123, "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
 ```
 
 Response msg string will be one of the following:
@@ -105,7 +102,7 @@ import SendSMS from 'react-native-sms-x';
 export default class RNSMS extends Component {
   sendSMSFunction() {
     SendSMS.send(123, "+95912345678", "Hey.., this is me!\nGood to see you. Have a nice day.",
-      (msgId, msg)=>{
+      (msg)=>{
         ToastAndroid.show(msg, ToastAndroid.SHORT);
       }
     );
