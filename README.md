@@ -1,17 +1,19 @@
-## react-native-sms-x
-***
-**SendSMS**
+# react-native-sms-x
 
-> ##### A react-native api to send SMS messages. It works only for android. This component used android native api to send sms and response a callback to react-native. This react-native component doesn't link to the mobile default messenger view. It will programmatically send the message to a phone number which is provided as a parameter and will response a callback with a string indicating message was sent or failure or no service.
+A react-native API to send SMS messages. It works only on android. This component uses android native APIs to send SMS and provides a callback to react-native. This react-native library doesn't link to the mobile default messenger view. It will programmatically send the message in the background.
 
-*usage*
+## Usage
 ```js
 import SendSMS from 'react-native-sms-x';
-// you can put any number as Id to identify which message being process
-SendSMS.send(123, "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msgId, msg) => {
+// You can put any number as Id to identify which message is being processed
+SendSMS.send(
+  123, // <- Message ID
+  "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", // <- Message Body
+  (msgId, msg) => {
     console.log(`message ID: ${msgId}, message: ${msg}`);
-    // Output if successfull: message ID: 123, message: SMS sent
-});
+  } // <- The callback which is called after sending the SMS
+  // Output if successful -> "message ID: 123, message: SMS sent"
+);
 ```
 
 Response msg string will be one of the following:
@@ -22,27 +24,35 @@ Response msg string will be one of the following:
 + "Radio off"       - for no mobile signal
 + "Null PDU"        - for no PDU
 
-###### *Note:*
 
-###### Minimum android version is `4.1` and supported `RN >= v0.29`.
----
-#### Installation
+> Note: Minimum android version is `4.1` and supported `RN >= v0.29`.
+
+## Installation
 ```
 npm install react-native-sms-x --save
 ```
----
-##### **Android Setup**
+
+## **Android Setup**
 
 1.In your `android/settings.gradle` file, make the following additions:
 
-```
+```gradle
 include ':react-native-sms-x'
 project(':react-native-sms-x').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sms-x/android/app')
 ```
 
-2.In your `android/app/build.gradle` file, add the ':react-native-sms-x' project as a compile-time dependency:
+2.In your `AndroidManifest.xml` file, add a user permission for sending SMS.
 
+```xml
+<uses-permission android:name="android.permission.SEND_SMS" />
 ```
+
+> You shouldn't do the next steps for React Native >= v0.72.  
+Or you will receive errors during compilation.
+
+3.In your `android/app/build.gradle` file, add the ':react-native-sms-x' project as a compile-time dependency:
+
+```gradle
 ...
 dependencies {
     ...
@@ -50,7 +60,7 @@ dependencies {
 }
 ```
 
-3.Update the `MainApplication.java` file as follow:
+4.Update the `MainApplication.java` file as follow:
 
 ```java
 import com.facebook.react.ReactApplication;
@@ -82,11 +92,6 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
-4.In your `AndroidManifest.xml` file, add a user permission for sending SMS.
-
-```
-<uses-permission android:name="android.permission.SEND_SMS" />
-```
 ---
 **Example**
 
