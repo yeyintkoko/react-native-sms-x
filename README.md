@@ -1,7 +1,5 @@
 # react-native-sms-x
 
-**SendSMS**
-
 A react-native API to send SMS messages. It works only on android. This component uses android native APIs to send SMS and provides a callback to react-native. This react-native library doesn't link to the mobile default messenger view. It will programmatically send the message in the background.
 
 ## Usage
